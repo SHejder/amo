@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "psr-4": {
+      "src\\": "src",
+      "app\\": "app"
+    }
+  },
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*"
+  }
+}
