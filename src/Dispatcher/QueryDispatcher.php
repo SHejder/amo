@@ -18,6 +18,7 @@ class QueryDispatcher
 
 
 
+
     /**
      * @param array $data
      * @param string $type

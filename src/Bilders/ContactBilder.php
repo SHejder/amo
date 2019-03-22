@@ -34,4 +34,24 @@ class ContactBilder extends Bilder
         return $this;
     }
 
+    /**
+     * @param array $fields
+     * @return ContactBilder $this
+     */
+
+    public function addPhone($fields)
+    {
+        $i=0;
+        $this->data['add'][0]['custom_fields'] = array();
+        foreach ($fields as $field)
+        {
+            $this->data['add'][0]['custom_fields'][$i]['id'] = $field['id'];
+            $this->data['add'][0]['custom_fields'][$i]['values'][0]['value'] = $field['value'];
+            $this->data['add'][0]['custom_fields'][$i]['values'][0]['enum'] = $field['enum'];
+            $i++;
+        }
+
+        return $this;
+    }
+
 }

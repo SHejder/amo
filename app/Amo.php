@@ -6,18 +6,22 @@
  * Time: 20:25
  */
 
-use src\Dispatcher\QueryDispatcher;
+namespace app;
+
 use src\Bilders\LeadBilder;
 use src\Bilders\ContactBilder;
+use src\Dispatcher\QueryDispatcher;
 
 class Amo
 {
+
     private $dispatcher;
     private $leadBilder;
     private $contactBilder;
 
     /**
      * Amo constructor.
+     * @param string $subdomain
      */
     public function __construct($subdomain)
     {
@@ -35,8 +39,11 @@ class Amo
 
     public function authorization($data)
     {
+
         $response = $this->dispatcher->getResponse($data, 'auth');
-        if (isset($response['response']['auth'])) {
+        if (isset($response['response']['auth']))
+        {
+            echo 'Успешная авторизация';
             return true;
         } else {
             echo 'Авторизация не удалась';
@@ -62,13 +69,18 @@ class Amo
         $response = $this->dispatcher->getResponse($lead, 'lead');
 
         if (isset($response['_embedded']['items'])) {
-            return $response['_embedded']['items']['id'];
+            return $response['_embedded']['items'][0]['id'];
         } else {
             echo "Лид не создан";
             die;
         }
 
     }
+
+    /**
+     * @param array $data
+     * @return integer
+     */
 
     public function createContact($data)
     {
@@ -79,13 +91,13 @@ class Amo
             ->addCreator($data['user'])
             ->addTags($data['tags'])
             ->addLead($data['lead'])
-            ->addCustomFields($data['fields'])
+            ->addPhone($data['fields'])
             ->getData();
         $response = $this->dispatcher->getResponse($contact, 'contact');
 
         if (isset($response['_embedded']['items'])) {
             echo "Конаткт добавлен";
-            return $response['_embedded']['items']['id'];
+            return $response['_embedded']['items'][0]['id'];
         } else {
             echo "Контакт не создан";
             die;
