@@ -9,7 +9,7 @@
 namespace src\Bilders;
 
 
-abstract class Bilder
+abstract class Builder
 {
     protected $data = ['add'];
 

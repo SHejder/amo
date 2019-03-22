@@ -9,13 +9,13 @@
 namespace src\Bilders;
 
 
-class LeadBilder extends Bilder
+class LeadBuilder extends Builder
 {
 
 
     /**
      * @param integer $status_id
-     * @return LeadBilder $this
+     * @return LeadBuilder $this
      */
     public function addStatus($status_id)
     {

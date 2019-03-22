@@ -9,11 +9,11 @@
 namespace src\Bilders;
 
 
-class ContactBilder extends Bilder
+class ContactBuilder extends Builder
 {
     /**
      * @param string $lead
-     * @return ContactBilder $this
+     * @return ContactBuilder $this
      */
     public function addLead($lead)
     {
@@ -25,7 +25,7 @@ class ContactBilder extends Bilder
 
     /**
      * @param integer $user
-     * @return ContactBilder $this
+     * @return ContactBuilder $this
      */
 
     public function addCreator($user)
@@ -36,7 +36,7 @@ class ContactBilder extends Bilder
 
     /**
      * @param array $fields
-     * @return ContactBilder $this
+     * @return ContactBuilder $this
      */
 
     public function addPhone($fields)

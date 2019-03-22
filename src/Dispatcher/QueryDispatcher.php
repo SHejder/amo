@@ -36,8 +36,8 @@ class QueryDispatcher
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($curl, CURLOPT_HEADER, false);
-        curl_setopt($curl, CURLOPT_COOKIEFILE, dirname(__FILE__) . '/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
-        curl_setopt($curl, CURLOPT_COOKIEJAR, dirname(__FILE__) . '/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+        curl_setopt($curl, CURLOPT_COOKIEFILE, dirname(__DIR__). '/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+        curl_setopt($curl, CURLOPT_COOKIEJAR, dirname(__DIR__) . '/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
         $out = curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
@@ -72,8 +72,9 @@ class QueryDispatcher
 
     /**
      * @return string
+     * @param string $type
      */
-    public function getLinkForData($type)
+    private function getLinkForData($type)
     {
         if ($type === 'auth') {
             return $link = 'https://' . $this->getSubdomain() . '.amocrm.ru/private/api/auth.php?type=json';
@@ -93,7 +94,7 @@ class QueryDispatcher
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getSubdomain()
     {
@@ -101,7 +102,7 @@ class QueryDispatcher
     }
 
     /**
-     * @param mixed $subdomain
+     * @param string $subdomain
      */
     public function setSubdomain($subdomain)
     {
