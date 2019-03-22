@@ -8,16 +8,16 @@
 
 namespace app;
 
-use src\Bilders\LeadBuilder;
-use src\Bilders\ContactBuilder;
+use src\Builders\Director;
+use src\Builders\LeadBuilder;
+use src\Builders\ContactBuilder;
 use src\Dispatcher\QueryDispatcher;
 
 class Amo
 {
 
     private $dispatcher;
-    private $leadBuilder;
-    private $contactBuilder;
+    private $director;
 
     /**
      * Amo constructor.
@@ -26,8 +26,7 @@ class Amo
     public function __construct($subdomain)
     {
         $this->dispatcher = new QueryDispatcher();
-        $this->leadBuilder = new LeadBuilder();
-        $this->contactBuilder = new ContactBuilder();
+        $this->director= new Director();
 
         $this->dispatcher->setSubdomain($subdomain);
     }
@@ -58,11 +57,14 @@ class Amo
 
     public function createLead($data)
     {
-        $lead = $this->leadBuilder
+        $builder = new LeadBuilder();
+        $this->director->setBuilder($builder);
+
+        $lead = $builder
             ->addName($data['name'])
             ->addDate()
             ->addStatus($data['status'])
-            ->addUser($data['user'])
+            ->addResponsibleUser($data['user'])
             ->addTags($data['tags'])
             ->addCustomFields($data['fields'])
             ->getData();
@@ -84,14 +86,17 @@ class Amo
 
     public function createContact($data)
     {
-        $contact = $this->contactBuilder
+        $builder = new ContactBuilder();
+        $this->director->setBuilder($builder);
+
+        $contact = $builder
             ->addName($data['name'])
             ->addDate()
-            ->addUser($data['user'])
+            ->addResponsibleUser($data['user'])
             ->addCreator($data['user'])
             ->addTags($data['tags'])
             ->addLead($data['lead'])
-            ->addPhone($data['fields'])
+            ->addPhone($data['phone'])
             ->getData();
         $response = $this->dispatcher->getResponse($contact, 'contact');
 
