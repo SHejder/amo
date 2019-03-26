@@ -24,7 +24,6 @@ class AmoClient
     public function send($request, $url)
     {
 
-        var_dump(json_encode($request));
         $curl = curl_init(); #Сохраняем дескриптор сеанса cURL
         #Устанавливаем необходимые опции для сеанса cURL
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
