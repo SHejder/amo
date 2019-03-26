@@ -6,9 +6,8 @@
  * Time: 16:32
  */
 
-namespace src\Builders;
+namespace src\Builder;
 
-use src\Interfaces\BuilderInterface;
 
 class LeadBuilder implements BuilderInterface
 {

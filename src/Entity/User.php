@@ -6,7 +6,7 @@
  * Time: 10:38
  */
 
-namespace src\Entities;
+namespace src\Entity;
 
 
 class User

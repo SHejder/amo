@@ -6,7 +6,7 @@
  * Time: 18:07
  */
 
-namespace src\Builders;
+namespace src\Builder;
 
 
 use src\Interfaces\BuilderInterface;

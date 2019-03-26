@@ -6,10 +6,9 @@
  * Time: 23:12
  */
 
-namespace src\Builders;
+namespace src\Builder;
 
 
-use src\Interfaces\BuilderInterface;
 
 class ContactBuilder implements BuilderInterface
 {

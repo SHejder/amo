@@ -6,16 +6,15 @@
  * Time: 10:18
  */
 
-namespace src\Factories;
+namespace src\Factory;
 
 
-use src\Builders\ContactBuilder;
-use src\Builders\Director;
-use src\Builders\LeadBuilder;
-use src\Entities\User;
-use src\Interfaces\RequestFactoryInterface;
+use src\Builder\ContactBuilder;
+use src\Builder\Director;
+use src\Builder\LeadBuilder;
+use src\Entity\User;
 
-class RequestRequestFactory implements RequestFactoryInterface
+class RequestFactory implements RequestFactoryInterface
 {
     private $director;
 

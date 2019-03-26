@@ -7,7 +7,7 @@
  */
 
 
-namespace src\Interfaces;
+namespace src\Builder;
 
 interface BuilderInterface
 {

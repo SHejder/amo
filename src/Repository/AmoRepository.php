@@ -6,7 +6,7 @@
  * Time: 20:25
  */
 
-namespace src\Repositories;
+namespace src\Repository;
 
 use src\Clients\AmoClient;
 

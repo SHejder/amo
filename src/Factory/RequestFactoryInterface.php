@@ -6,7 +6,7 @@
  * Time: 9:57
  */
 
-namespace src\Interfaces;
+namespace src\Factory;
 
 
 interface RequestFactoryInterface
