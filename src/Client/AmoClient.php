@@ -33,8 +33,8 @@ class AmoClient
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($request));
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         curl_setopt($curl, CURLOPT_HEADER, false);
-        curl_setopt($curl, CURLOPT_COOKIEFILE, dirname(__DIR__) . '/Client/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
-        curl_setopt($curl, CURLOPT_COOKIEJAR, dirname(__DIR__) . '/Client/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+        curl_setopt($curl, CURLOPT_COOKIEFILE, dirname(__DIR__) . '/tmp/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+        curl_setopt($curl, CURLOPT_COOKIEJAR, dirname(__DIR__) . '/tmp/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
         $out = curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
