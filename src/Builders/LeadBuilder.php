@@ -94,7 +94,7 @@ class LeadBuilder implements BuilderInterface
     public function getData()
     {
         $lead = $this->lead;
-        $data['add'] = (array)$lead;
+        $data['add'] = [(array)$lead];
         return $data;
     }
 }

@@ -89,7 +89,7 @@ class ContactBuilder implements BuilderInterface
      */
     public function addLead($leads)
     {
-        $this->contact->contacts_id = $leads;
+        $this->contact->leads_id = $leads;
         return $this;
     }
 
@@ -122,7 +122,7 @@ class ContactBuilder implements BuilderInterface
     public function getData()
     {
         $contact = $this->contact;
-        $data['add'] = (array)$contact;
+        $data['add'] = [(array)$contact];
         return $data;
     }
 
