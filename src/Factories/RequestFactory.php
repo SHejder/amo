@@ -14,7 +14,6 @@ use src\Builders\Director;
 use src\Builders\LeadBuilder;
 use src\Entities\User;
 use src\Interfaces\FactoryInterface;
-use src\Requests\Request;
 
 class RequestFactory implements FactoryInterface
 {
