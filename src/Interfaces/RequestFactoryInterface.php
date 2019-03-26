@@ -9,7 +9,7 @@
 namespace src\Interfaces;
 
 
-interface FactoryInterface
+interface RequestFactoryInterface
 {
     public function createAuthRequest($data);
 

@@ -13,9 +13,9 @@ use src\Builders\ContactBuilder;
 use src\Builders\Director;
 use src\Builders\LeadBuilder;
 use src\Entities\User;
-use src\Interfaces\FactoryInterface;
+use src\Interfaces\RequestFactoryInterface;
 
-class RequestFactory implements FactoryInterface
+class RequestRequestFactory implements RequestFactoryInterface
 {
     private $director;
 

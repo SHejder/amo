@@ -10,7 +10,7 @@ namespace app;
 
 
 use src\Entities\User;
-use src\Factories\RequestFactory;
+use src\Factories\RequestRequestFactory;
 use src\Repositories\AmoRepository;
 
 class Amo
@@ -26,7 +26,7 @@ class Amo
      */
     public function __construct($subdomain)
     {
-        $this->requestFactory = new RequestFactory();
+        $this->requestFactory = new RequestRequestFactory();
         $this->user = new User();
         $this->amoRepository = new AmoRepository($subdomain);
     }
