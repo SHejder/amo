@@ -9,6 +9,8 @@
 namespace src\Builders;
 
 
+use src\Interfaces\BuilderInterface;
+
 class Director
 {
     private $builder;
@@ -18,6 +20,9 @@ class Director
      */
     public function setBuilder($builder)
     {
-        $this->builder = $builder;
+        if($builder instanceof BuilderInterface)
+        {
+            $this->builder = $builder;
+        }
     }
 }

@@ -20,6 +20,10 @@ class Amo
     private $user;
     private $amoRepository;
 
+    /**
+     * Amo constructor.
+     * @param string $subdomain
+     */
     public function __construct($subdomain)
     {
         $this->requestFactory = new RequestFactory();
@@ -27,13 +31,20 @@ class Amo
         $this->amoRepository = new AmoRepository($subdomain);
     }
 
-
+    /**
+     * @return array
+     */
     public function authUser()
     {
         $request = $this->requestFactory->createAuthRequest($this->user);
         return $this->amoRepository->auth($request);
     }
 
+    /**
+     * @param string name
+     * @param string $hash
+     * @return $this
+     */
     public function createUser($name, $hash)
     {
         $user = $this->user;
@@ -42,6 +53,10 @@ class Amo
         return $this;
     }
 
+    /**
+     * @param array $data
+     * @return array
+     */
     public function createLead($data)
     {
         $request = $this->requestFactory->createLeadRequest($data);
